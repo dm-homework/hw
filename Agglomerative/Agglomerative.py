@@ -13,7 +13,6 @@ Machine Intelligence. 2002. pp. 603-619.
 print(__doc__)
 
 import numpy as np
-from sklearn.cluster import MeanShift, estimate_bandwidth
 from itertools import cycle
 from sklearn.preprocessing import scale
 from sklearn.decomposition import PCA
@@ -39,7 +38,7 @@ labels_true = digits.target
 
 # #############################################################################
 
-agg = AgglomerativeClustering(n_clusters=6)
+agg = AgglomerativeClustering(n_clusters=6,linkage="average")
 agg.fit(X)
 labels = agg.labels_
 labels_unique = np.unique(labels)
